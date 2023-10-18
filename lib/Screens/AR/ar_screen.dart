@@ -5,8 +5,8 @@ import 'package:audioplayers/audioplayers.dart';
 class ARScreen extends StatelessWidget {
   final AudioPlayer player = AudioPlayer();
 
-  Future<void> _playAudio(String audioFileName) async {
-    await player.play('assets/audio/$audioFileName' as Source);
+  Future<void> _playAudio(audioUrl) async {
+    await player.play(UrlSource(audioUrl));
   }
 
   @override
@@ -36,25 +36,25 @@ class ARScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 150, // Chiều rộng của nút
+                  width: 150,
                   child: ElevatedButton(
                     onPressed: () {
-                      _playAudio("plane.mp3");
+                      _playAudio('assets/audio/plane.mp3');
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green, // Màu nền của nút khi không được nhấn vào
+                      primary: const Color.fromARGB(255, 26, 238, 33),
                     ),
                     child: Text("Tên tiếng Anh"),
                   ),
                 ),
                 SizedBox(
-                  width: 150, // Chiều rộng của nút
+                  width: 150,
                   child: ElevatedButton(
                     onPressed: () {
-                      _playAudio("plane_tv.mp3");
+                      _playAudio('assets/audio/plane_tv.mp3');
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.orange, // Màu nền của nút khi không được nhấn vào
+                      primary: const Color.fromARGB(255, 219, 143, 29),
                     ),
                     child: Text("Tên tiếng Việt"),
                   ),
